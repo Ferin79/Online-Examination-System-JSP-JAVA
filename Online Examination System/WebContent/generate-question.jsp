@@ -1,19 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-   <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Add Question</title>
-	<style>
-		body
-		{
-			padding:0px;
-			margin:0px;
-			background-color:lightblue;
-		}
-		input
+<style>
+	body
+	{
+		padding:0px;
+		margin:0px;
+		background-color:lightblue;
+	}
+	.name
+	{
+		position:absolute;
+		font-size:40px;
+		left:40%;
+	}
+	input
 		{
 			padding:10px;
 			margin:10px;
@@ -39,26 +43,16 @@
 		{
 			border:1px solid black;
 		}
-		.header
+		.form1
 		{
-			width:100%;
-			position:absolute;
-			padding:25px;
-			font-size:40px;
-			left:35%;
-		}
-		.main
-		{
-			position:relative;
-			padding-top:100px;	
-			padding-left:500px;	
-		}
-		button
-		{
-			font-size:25px;
+			padding-left:100px;
+			padding-top:100px;
 		}
 		
-	</style>
+		
+</style>
+<meta charset="ISO-8859-1">
+<title>Generate Question</title>
 </head>
 <body>
 <%
@@ -68,10 +62,11 @@
 	String questiontype;
 	String cor_ans;
 %>
-	<div class="header">Add Question To Database</div>
-	<div class="main">
-		<form  method = "get">
-		<table>
+	<div class="name">Generate Question</div>
+	<div class="form1">
+	<form>
+	<table>
+
 		
 		<tr>	
 		<td><label>Choose Class :</label></td>
@@ -225,54 +220,21 @@
 				questiontype = request.getParameter("type");
 			%>
 			</tr>
-			<tr>
-			<td><label>Enter Question :</label></td>
-			<td><textarea name="question" rows=5 cols=50>
-			</textarea></td>
-			</tr>
-			<tr>
-			<td><label>Option 1 : </label></td>
-			<td><input type="text" name="option1"></td>
-			</tr>
-			<tr>
-			<td><label>Option 2 : </label></td>
-			<td><input type="text" name="option2"></td>
-			</tr>
-			<tr>
-			<td><label>Option 3 : </label></td>
-			<td><input type="text" name="option3"></td>
-			</tr>
-			<tr>
-			<td><label>Option 4 : </label></td>
-			<td><input type="text" name="option4"></td>
-			</tr>
-			<tr>
-			<td><label>Correct Answer : </label></td>
-			<td><select name="answer" id = answer>
-					<option value = "0">select option</option>
-					<option value = "1">option 1</option>
-					<option value = "2">option 2</option>
-					<option value = "3">option 3</option>
-					<option value = "4">option 4</option>
-			</select></td>
-			<%
-				cor_ans = request.getParameter("answer");
-			%>
-			</tr>
-			<tr>
-			<td><label>Solution:</label></td>
-			<td><textarea name="solution" rows=5 cols=50>
-			</textarea></td>
-			</tr>
-			<tr>
-			<td><button type="submit" formaction="add_question">Add Question</button></td>
-			<td><a href="index.jsp"><input type="button" value="Home"></a>
-				<a href="add_question.jsp"><input type="button" value="Clear"></a>
-				<a href="generate-question.jsp"><input type="button" value="Generate Question"></a>
-			</td>
-			</tr>
-		</table>
-		</form>
+			
+				
+		<tr>
+		<td><label>Exam Name :</label>
+		<td><input type="text" name="examname" placeholder="Enter Exam Name"></td>
+		</tr>
+		
+		<tr>
+		<td><label>Enter Number of Question :</label></td>
+		<td><input type="number" name="no_question" placeholder="Enter Number of Question"></td>
+		</tr>
+		
+	</table>
+	</form>
 	</div>
+	
 </body>
 </html>
