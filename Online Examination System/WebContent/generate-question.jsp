@@ -48,6 +48,12 @@
 			padding-left:100px;
 			padding-top:100px;
 		}
+		button
+		{
+			padding:10px;
+			margin:10px;
+		 	font-size:25px;
+		}
 		
 		
 </style>
@@ -64,7 +70,7 @@
 %>
 	<div class="name">Generate Question</div>
 	<div class="form1">
-	<form>
+	<form method="POST">
 	<table>
 
 		
@@ -231,6 +237,11 @@
 		<td><label>Enter Number of Question :</label></td>
 		<td><input type="number" name="no_question" placeholder="Enter Number of Question"></td>
 		</tr>
+		
+		<tr>
+		<td><button type="submit" formaction="generate_question">Generate Question</button></td>
+		</tr>
+		
 		
 	</table>
 	</form>
