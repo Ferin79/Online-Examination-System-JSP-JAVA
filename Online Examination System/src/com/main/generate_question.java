@@ -43,9 +43,6 @@ public class generate_question extends HttpServlet {
 			}
 			System.out.println("Done");
 			
-			PrintWriter out = response.getWriter();
-			out.println("<h1>Question Generated Successfully Goto Below Link to See Quiz</h1>");
-			out.println("<h2><a href='/exam.jsp'>Quiz</a></h2>");
 		}
 		catch(Exception e)
 		{
