@@ -15,6 +15,7 @@ public class generate_question extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int id = 0;
 		int classid = Integer.parseInt((request.getParameter("class_main")));
 		int subjectid = Integer.parseInt(request.getParameter("subject"));
 		int chapterid = Integer.parseInt(request.getParameter("chapter"));
@@ -23,7 +24,7 @@ public class generate_question extends HttpServlet {
 		int number = Integer.parseInt(request.getParameter("no_question"));
 		
 		System.out.println(classid+" "+subjectid+" "+chapterid+" "+question_type);
-		
+		ResultSet r1 = null;
 		try
 		{
 			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
@@ -38,11 +39,19 @@ public class generate_question extends HttpServlet {
 			int rows = 0;
 			while(rs.next())
 			{
-				rows++;
-				System.out.println(rs.getInt("questionid"));
+				ps = com.prepareStatement("select max(id)+1 as id from exam_question");
+				r1 = ps.executeQuery();
+				while(r1.next())
+				{
+					id = r1.getInt("id");
+					ps = com.prepareStatement("INSERT INTO `exam_question`(`id`, `questionid`) VALUES (?,?)");
+					ps.setInt(1,id);
+					ps.setInt(2,rs.getInt("questionid"));
+					ps.executeUpdate();
+				}
 			}
 			System.out.println("Done");
-			
+			response.sendRedirect("generate-question.jsp");
 		}
 		catch(Exception e)
 		{

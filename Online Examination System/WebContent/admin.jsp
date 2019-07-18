@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
+<style>
 	*{
 	padding:0px;
 	margin:0px;
@@ -80,27 +80,21 @@ ul li a:hover
     font-size: 50px;
     color:#fff;
 }
-
 	</style>
+
 <meta charset="ISO-8859-1">
-<title>Career Institute</title>
+<title>Welcome</title>
 </head>
 <body>
 	<%
-	if(session.getAttribute("email")!=null)
-	{
-		if(session.getValue("email").toString().equals("ferinpatel79@gmail.com"))
+	
+		response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
+		if(session.getAttribute("email")==null)
 		{
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("index.jsp");
 		}
-		else
-		{
-			response.sendRedirect("welcome.jsp");
-			
-		}
-	}
 	%>
- <header class="header1">
+	<header class="header1">
         <div class="logo">
             <a href="index.jsp">Career Education</a>
             <div class="tagline">
@@ -109,17 +103,17 @@ ul li a:hover
         </div>
         <div class="main">
             <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="exam.jsp">Online Exam</a></li>
-			    <li><a href="register.jsp">Login</a></li>
-                <li><a href="#">Contact Us</a></li>
+                
+                <li><a href="#">Hey,${fullname}</a></li>
+                <li><a href="add_question.jsp">Add Question</a></li>
+                <li><a href="generate-question.jsp">Take Exam</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
                 <li><a href="#">Developer</a></li>
             </ul>
         </div>
         <div class="hello">
-            Welcome to Career Group
+            Welcome, ${fullname}
         </div>
     </header>
-	
 </body>
 </html>

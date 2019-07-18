@@ -1,6 +1,8 @@
 package com.log;
 import java.sql.*;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +17,8 @@ public class register extends HttpServlet {
 		Connection com = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
+		PrintWriter out = response.getWriter();
+
 		if(request.getParameter("password_res").equals(request.getParameter("pass_res_con")))
 		{
 			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
@@ -31,12 +34,17 @@ public class register extends HttpServlet {
 				ps.setString(3,password);
 				ps.setString(1,name);
 				ps.executeUpdate();
+				out.println("<script>alert('Register Successfully')</script>");
 				response.sendRedirect("welcome.jsp");
 			}
 			catch(Exception e)
 			{
-				System.out.println(e.getMessage());
+				out.println(e.getMessage());
 			}
+		}
+		else
+		{
+			out.println("<h1>Password Didnt Match</h1>");
 		}
 	}
 

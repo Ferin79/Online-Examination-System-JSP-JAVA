@@ -114,7 +114,6 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Online Exam</a></li>
-                <li><a href="register.html">Register</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Developer</a></li>
             </ul>
@@ -124,9 +123,9 @@
         <div class="box_login">
             <form action="login" method="POST">
                 <h1 style="color: #fff">Login</h1>
-                <input type="Email" name="email_log" placeholder="Enter Email">
+                <input type="Email" name="email_log" required placeholder="Enter Email">
                 <br>
-                <input type="password" name="password_log" placeholder="Enter Password">
+                <input type="password" name="password_log" required placeholder="Enter Password">
                 <br>
                 <input type="submit" value="Login">
             </form>
@@ -134,13 +133,13 @@
         <div class="box_register">
             <form action="register" method="POST">
                 <h1 style="color:#fff">Register</h1>
-                <input type="text" name="name_res" placeholder="Enter Full Name">
+                <input type="text" name="name_res" required placeholder="Enter Full Name">
                 <br>
-                <input type="Email" name="email_res" placeholder="Enter Email">
+                <input type="Email" name="email_res" required placeholder="Enter Email">
                 <br>
-                <input type="password" name="password_res" placeholder="Enter Password">
+                <input type="password" name="password_res" required placeholder="Enter Password">
                 <br>
-                <input type="password" name="pass_res_con" placeholder="Retype Password Again">
+                <input type="password" name="pass_res_con" required placeholder="Retype Password Again">
                 <br>
                 <input type="submit" value="Register">
             </form>

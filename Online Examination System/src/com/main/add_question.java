@@ -15,7 +15,7 @@ public class add_question extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		
-			
+		int i = 0;	
 		int classid_main = Integer.parseInt(request.getParameter("class_main"));
 		int subjectid_main = Integer.parseInt(request.getParameter("subject"));
 		int chapterid_main = Integer.parseInt(request.getParameter("chapter"));
@@ -32,21 +32,28 @@ public class add_question extends HttpServlet {
 		{
 			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
 			Connection com = DriverManager.getConnection(url,"root","");
-			PreparedStatement ps = com.prepareStatement("INSERT INTO `questionmaster`(`questionid`, `classid`, `subjectid`, `chapterid`, `questiontype`, `question`, `option1`, `option2`, `option3`, `option4`, `answer`, `solution`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setInt(1,1);
-			ps.setInt(2, classid_main);
-			ps.setInt(3,subjectid_main);
-			ps.setInt(4,chapterid_main);
-			ps.setInt(5,ques_type);
-			ps.setString(6,question);
-			ps.setString(7,option1);
-			ps.setString(8,option2);
-			ps.setString(9,option3);
-			ps.setString(10,option4);
-			ps.setInt(11,answer);
-			ps.setString(12,solution);
-			ps.executeUpdate();
-			response.sendRedirect("add_question.jsp");
+			PreparedStatement ps = com.prepareStatement("select max(questionid)+1 as id from questionmaster");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				i = rs.getInt("id");
+				ps = com.prepareStatement("INSERT INTO `questionmaster`(`questionid`, `classid`, `subjectid`, `chapterid`, `questiontype`, `question`, `option1`, `option2`, `option3`, `option4`, `answer`, `solution`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+				ps.setInt(1,i);
+				ps.setInt(2, classid_main);
+				ps.setInt(3,subjectid_main);
+				ps.setInt(4,chapterid_main);
+				ps.setInt(5,ques_type);
+				ps.setString(6,question);
+				ps.setString(7,option1);
+				ps.setString(8,option2);
+				ps.setString(9,option3);
+				ps.setString(10,option4);
+				ps.setInt(11,answer);
+				ps.setString(12,solution);
+				ps.executeUpdate();
+				response.sendRedirect("add_question.jsp");
+				
+			}
 		}
 		catch(Exception e)
 		{

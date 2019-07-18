@@ -19,6 +19,7 @@ public class login extends HttpServlet {
 		Connection com = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		boolean flag=false;
 		
 		String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
 		String email = request.getParameter("email_log");
@@ -45,20 +46,25 @@ public class login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("email",email);
 					session.setAttribute("fullname", rs.getString("fullname"));
-					response.sendRedirect("welcome.jsp");
+					response.sendRedirect("index.jsp");
+					flag=true;
 					break;
 				}
 				else
 				{
-					PrintWriter out = response.getWriter();
-					out.println("<h1>Email or Password is incorrect<h1>");
-					out.println("<br><h1><a href='register.jsp'>Try Again</a></h1>");
+					flag=false;
 				}
 			}	
 		}
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
+		}
+		if(flag==false)
+		{
+			PrintWriter out = response.getWriter();
+			out.println("<h1>Email or Password is incorrect<h1>");
+			out.println("<br><h1><a href='register.jsp'>Try Again</a></h1>");
 		}
 	}
 }

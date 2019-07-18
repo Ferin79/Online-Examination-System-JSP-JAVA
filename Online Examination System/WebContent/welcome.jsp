@@ -103,8 +103,8 @@ ul li a:hover
         </div>
         <div class="main">
             <ul>
-                <li><a href="exam.jsp">Online Exam</a></li>
                 <li><a href="#">Hey,${fullname}</a></li>
+                <li><a href="exam.jsp">Online Exam</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Developer</a></li>

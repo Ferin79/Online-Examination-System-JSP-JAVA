@@ -62,6 +62,18 @@
 </head>
 <body>
 <%
+	if(session.getAttribute("email")!=null)
+	{
+		if(!(session.getValue("email").toString().equals("ferinpatel79@gmail.com")))
+		{
+			out.println("<h1>Access Denied !!!!    You need Admin Account to access this page. </h1>");
+			response.sendRedirect("register.jsp");
+		}
+	}
+	else
+	{
+		response.sendRedirect("register.jsp");
+	}
 	String classid;
 	String subjectid;
 	String chapterid;
@@ -239,8 +251,10 @@
 		</tr>
 		
 		<tr>
-		<td><button type="submit" formaction="generate_question">Generate Question</button></td>
+		<td><button type="submit" formaction="generate_question">Add</button></td>
+		<td><button type="submit" formaction="clear_oldexam">Clear Database from old Exam</button></td>
 		</tr>
+		
 		
 		
 	</table>
