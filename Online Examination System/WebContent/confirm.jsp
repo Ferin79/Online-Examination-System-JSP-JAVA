@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
+<meta charset="ISO-8859-1">
+<title>Confirm</title>
+<style>
+<style>
 	*{
 	padding:0px;
 	margin:0px;
@@ -11,12 +14,11 @@
 }
 body
 {
-    
+        background-color:lightblue;
 }
 header
 {
-    background-color:lightblue;
-    height: 100vh;
+    height: 100px;
     background-size: cover;
     background-position: center;
 }
@@ -66,41 +68,31 @@ ul li a:hover
 {
     background-color: lightcoral;
 }
-.image_roll
+label
 {
-    width: 20px;
-    height: 20px;
+	padding:50px;
+	margin:20px;
+	font-size:30px;
+	
 }
-.hello
+button
 {
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    font-size: 50px;
-    color:#fff;
+	padding:10px;
+	margin:20px;
+	font-size:30px;
+	background-color:lightblue;
 }
 
-	</style>
-<meta charset="ISO-8859-1">
-<title>Career Institute</title>
+</style>
 </head>
 <body>
-	<%
-	if(session.getAttribute("email")!=null)
+<%
+	if(session.getAttribute("email")==null)
 	{
-		if(session.getValue("email").toString().equals("ferinpatel79@gmail.com"))
-		{
-			response.sendRedirect("admin.jsp");
-		}
-		else
-		{
-			response.sendRedirect("welcome.jsp");
-			
-		}
+		response.sendRedirect("register.jsp");
 	}
-	%>
- <header class="header1">
+%>
+		<header class="header1">
         <div class="logo">
             <a href="index.jsp">Career Education</a>
             <div class="tagline">
@@ -109,17 +101,32 @@ ul li a:hover
         </div>
         <div class="main">
             <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="confirm.jsp">Online Exam</a></li>
-			    <li><a href="register.jsp">Login</a></li>
+                <li><a href="#">Hey,${fullname}</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Developer</a></li>
             </ul>
         </div>
-        <div class="hello">
-            Welcome to Career Group
-        </div>
     </header>
-	
+     <div class="inst">
+        		<h1>Exam Instructions</h1>
+        		<br>
+        		<label>The Exam will be Of multiple Choice Question</label>
+        		<br>
+        		<br>
+        		<label>Total 30 Question are there in exam</label>
+        		<br>
+        		<br>
+        		<label>As soon as you click submit Button, Timer will automatically starts</label>
+        		<br>
+        		<br>
+        		<label>When times ups, your exam will automatically submitted</label>
+        		<br>
+        		<br>
+        		<label>All Question are compulsory</label>
+        		<br>
+        		<br>
+	        	<a href="exam.jsp"><button>Start Exam</button></a>
+        </div>
 </body>
 </html>

@@ -17,10 +17,12 @@
 		{
 			padding:10px;
 			margin:10px;
-			font-size:25px;
+			font-size:20px;
 		}
 		label
 		{
+			padding:10px;
+			margin:10px;
 			font-size:25px;	
 		}
 		select
@@ -37,6 +39,8 @@
 		}
 		table td
 		{
+			padding:10px;
+			margin:10px;
 			border:1px solid black;
 		}
 		.header
@@ -51,7 +55,7 @@
 		{
 			position:relative;
 			padding-top:100px;	
-			padding-left:500px;	
+			padding-left:250px;	
 		}
 		button
 		{
@@ -82,7 +86,7 @@
 %>
 	<div class="header">Add Question To Database</div>
 	<div class="main">
-		<form  method = "get">
+		<form  method = "get" enctype='multipart/form-data'>
 		<table>
 		
 		<tr>	
@@ -241,22 +245,27 @@
 			<td><label>Enter Question :</label></td>
 			<td><textarea name="question" rows=5 cols=50>
 			</textarea></td>
+			<td><input type="file" name="ques_img"></td>
 			</tr>
 			<tr>
 			<td><label>Option 1 : </label></td>
 			<td><input type="text" name="option1"></td>
+			<td><input type="file" name="op1_img"></td>
 			</tr>
 			<tr>
 			<td><label>Option 2 : </label></td>
 			<td><input type="text" name="option2"></td>
+			<td><input type="file" name="op2_img"></td>
 			</tr>
 			<tr>
 			<td><label>Option 3 : </label></td>
 			<td><input type="text" name="option3"></td>
+			<td><input type="file" name="op3_img"></td>
 			</tr>
 			<tr>
 			<td><label>Option 4 : </label></td>
 			<td><input type="text" name="option4"></td>
+			<td><input type="file" name="op4_img"></td>
 			</tr>
 			<tr>
 			<td><label>Correct Answer : </label></td>
@@ -267,17 +276,19 @@
 					<option value = "3">option 3</option>
 					<option value = "4">option 4</option>
 			</select></td>
-			<%
-				cor_ans = request.getParameter("answer");
-			%>
+			<tr>
+			<td><label>Enter Marks :</label>
+			<td><input type="number" name="mark" placeholder="Enter Marks"></td>
+			</tr>
 			</tr>
 			<tr>
 			<td><label>Solution:</label></td>
 			<td><textarea name="solution" rows=5 cols=50>
 			</textarea></td>
+			<td><input type="file" name="sol_img"></td>
 			</tr>
 			<tr>
-			<td><button type="submit" formaction="add_question">Add Question</button></td>
+			<td><button type="submit" formaction="add_question" enctype='multipart/form-data'>Add Question</button></td>
 			<td><a href="index.jsp"><input type="button" value="Home"></a>
 				<a href="add_question.jsp"><input type="button" value="Clear"></a>
 				<a href="generate-question.jsp"><input type="button" value="Generate Question"></a>
