@@ -93,6 +93,13 @@ tr td
 	border:2px solid red;
 }
 </style>
+
+<script type="text/javascript">
+function preback(){window.history.forward();}
+setTimeout("preback()",0);
+window.onunload=function(){null};
+</script>
+
 </head>
 <body>
 	<%
@@ -117,19 +124,6 @@ tr td
 		</div>
 	</header>
 	<table cellspacing="10">
-		<%
-			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
-			Connection con = null;
-			PreparedStatement ps = null;
-			ResultSet rs = null;
-			try {
-				con = DriverManager.getConnection(url, "root", "");
-				ps = con.prepareStatement("select * from exam_record where email = ? limit 1");
-				ps.setString(1,session.getValue("email").toString());
-				rs = ps.executeQuery();
-
-				while (rs.next()) {
-		%>
 
 		<tr>
 			<h1>
@@ -138,27 +132,26 @@ tr td
 		</tr>
 		<tr>
 			<td><label class="hell">Marks Obtained :</label>
-			<td><label class="hell"><%=rs.getString("marks")%></label></td>
+			<td><label class="hell"><%=session.getValue("marks").toString()%></label></td>
 		</tr>
 		<tr>
 			<td><label class="hell">Correct Answer :</label></td>
-			<td><label class="hell"><%=rs.getString("correct")%></label>
+			<td><label class="hell"><%=session.getValue("right").toString()%></label>
 		</tr>
 		<tr>
 			<td><label class="hell">Wrong Answer :</label></td>
-			<td><label class="hell"><%=rs.getString("wrong")%></label></td>
+			<td><label class="hell"><%=session.getValue("wrong").toString()%></label></td>
 		</tr>
 		<tr>
 			<td><label class="hell">Not Attemted :</label></td>
-			<td><label class="hell"><%=rs.getString("notattemted")%></label>
+			<td><label class="hell"><%=session.getValue("not").toString()%></label>
 		</tr>
-
-		<%
-			}
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		%>
 	</table>
+	<%
+	session.removeAttribute("marks");
+	session.removeAttribute("right");
+	session.removeAttribute("wrong");
+	session.removeAttribute("not");
+	%>
 </body>
 </html>

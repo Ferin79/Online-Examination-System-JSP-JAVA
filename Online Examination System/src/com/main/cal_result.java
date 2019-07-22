@@ -104,6 +104,11 @@ public class cal_result extends HttpServlet {
 		System.out.println("Wrong = "+countWrong);
 		System.out.println("Not Attemted = "+countNot);
 		
+		session.setAttribute("marks",total_marks);
+		session.setAttribute("right",countRight);
+		session.setAttribute("wrong",countWrong);
+		session.setAttribute("not",countNot);
+		
 		try
 		{
 			java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());

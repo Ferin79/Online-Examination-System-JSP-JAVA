@@ -31,6 +31,20 @@
 </style>
 </head>
 <body>
+<%
+response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
+	if(session.getAttribute("email")!=null)
+	{
+		if(!(session.getValue("email").toString().equals("ferinpatel79@gmail.com")))
+		{
+			response.sendRedirect("AccessDenied.jsp");
+		}
+	}
+	else
+	{
+		response.sendRedirect("register.jsp");
+	}
+%>
 	<form action="admin-result.jsp" method="POST">
 	
 	<label class="hell">Enter Date :</label><input type="date" name="result_date">

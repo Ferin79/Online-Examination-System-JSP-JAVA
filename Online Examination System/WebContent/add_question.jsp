@@ -66,12 +66,12 @@
 </head>
 <body>
 <%
+response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
 	if(session.getAttribute("email")!=null)
 	{
 		if(!(session.getValue("email").toString().equals("ferinpatel79@gmail.com")))
 		{
-			out.println("<h1>Access Denied !!!!    You need Admin Account to access this page. </h1>");
-			response.sendRedirect("register.jsp");
+			response.sendRedirect("AccessDenied.jsp");
 		}
 	}
 	else

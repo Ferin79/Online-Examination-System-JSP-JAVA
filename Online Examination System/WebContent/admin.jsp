@@ -87,12 +87,18 @@ ul li a:hover
 </head>
 <body>
 	<%
-	
-		response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
-		if(session.getAttribute("email")==null)
+	response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
+	if(session.getAttribute("email")!=null)
+	{
+		if(!(session.getValue("email").toString().equals("ferinpatel79@gmail.com")))
 		{
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("AccessDenied.jsp");
 		}
+	}
+	else
+	{
+		response.sendRedirect("register.jsp");
+	}
 	%>
 	<header class="header1">
         <div class="logo">
@@ -107,6 +113,7 @@ ul li a:hover
                 <li><a href="#">Hey,${fullname}</a></li>
                 <li><a href="add_question.jsp">Add Question</a></li>
                 <li><a href="generate-question.jsp">Take Exam</a></li>
+                <li><a href="admin-date.jsp">See Results</a>
                 <li><a href="logout.jsp">Logout</a></li>
                 <li><a href="#">Developer</a></li>
             </ul>
