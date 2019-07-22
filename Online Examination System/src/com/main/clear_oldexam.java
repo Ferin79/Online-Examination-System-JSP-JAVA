@@ -21,6 +21,8 @@ public class clear_oldexam extends HttpServlet {
 			Connection con = DriverManager.getConnection(url,"root","");
 			PreparedStatement ps = con.prepareStatement("TRUNCATE TABLE exam_question");
 			ps.executeUpdate();
+			ps = con.prepareStatement("TRUNCATE TABLE curr_exam");
+			ps.executeUpdate();
 			response.sendRedirect("generate-question.jsp");
 		}
 		catch(Exception e)

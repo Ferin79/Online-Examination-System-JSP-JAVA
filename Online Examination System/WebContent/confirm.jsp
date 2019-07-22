@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +88,35 @@ button
 </head>
 <body>
 <%
-	if(session.getAttribute("email")==null)
+	int flag = 0;
+	if(session.getAttribute("email")!=null)
+	{
+		try
+		{
+			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
+			Connection con = DriverManager.getConnection(url,"root","");
+			PreparedStatement ps = con.prepareStatement("select * from curr_exam");
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				if(session.getValue("email").toString().equals(rs.getString("email")))
+				{
+					flag = 1;
+				}
+			}
+			if(flag == 1)
+			{
+				flag = 0;
+				response.sendRedirect("once.jsp");
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+	else
 	{
 		response.sendRedirect("register.jsp");
 	}
