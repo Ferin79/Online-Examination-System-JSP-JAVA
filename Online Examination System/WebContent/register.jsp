@@ -115,7 +115,7 @@
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="confirm.jsp">Online Exam</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Developer</a></li>
+                <li><a href="./dev_page/ferin.html">Developer</a></li>
             </ul>
         </div>
     </header>

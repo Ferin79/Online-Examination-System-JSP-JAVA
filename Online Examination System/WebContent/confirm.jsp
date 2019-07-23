@@ -133,7 +133,7 @@ button
                 <li><a href="#">Hey,${fullname}</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Developer</a></li>
+                <li><a href="./dev_page/ferin.html">Developer</a></li>
             </ul>
         </div>
     </header>

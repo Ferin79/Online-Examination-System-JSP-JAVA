@@ -115,7 +115,7 @@ ul li a:hover
                 <li><a href="generate-question.jsp">Take Exam</a></li>
                 <li><a href="admin-date.jsp">See Results</a>
                 <li><a href="logout.jsp">Logout</a></li>
-                <li><a href="#">Developer</a></li>
+                <li><a href="./dev_page/ferin.html">Developer</a></li>
             </ul>
         </div>
         <div class="hello">
