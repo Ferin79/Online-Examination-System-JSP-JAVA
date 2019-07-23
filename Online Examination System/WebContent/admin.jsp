@@ -111,7 +111,7 @@ ul li a:hover
             <ul>
                 
                 <li><a href="#">Hey,${fullname}</a></li>
-                <li><a href="add_question.jsp">Add Question</a></li>
+                <li><a href="AddQuestion.jsp">Add Question</a></li>
                 <li><a href="generate-question.jsp">Take Exam</a></li>
                 <li><a href="admin-date.jsp">See Results</a>
                 <li><a href="logout.jsp">Logout</a></li>
