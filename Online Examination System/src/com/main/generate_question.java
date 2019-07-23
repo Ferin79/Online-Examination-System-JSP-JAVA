@@ -20,7 +20,6 @@ public class generate_question extends HttpServlet {
 		int subjectid = Integer.parseInt(request.getParameter("subject"));
 		int chapterid = Integer.parseInt(request.getParameter("chapter"));
 		int question_type = Integer.parseInt(request.getParameter("ques_type"));
-		String Exam = request.getParameter("examname");
 		int number = Integer.parseInt(request.getParameter("no_question"));
 		
 		System.out.println(classid+" "+subjectid+" "+chapterid+" "+question_type);
@@ -29,11 +28,12 @@ public class generate_question extends HttpServlet {
 		{
 			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
 			Connection com = DriverManager.getConnection(url,"root","");
-			PreparedStatement ps = com.prepareStatement("select questionid from questionmaster where classid = ? and subjectid = ? and chapterid = ? and questiontype = ? ");
+			PreparedStatement ps = com.prepareStatement("select questionid from questionmaster where classid = ? and subjectid = ? and chapterid = ? and questiontype = ? ORDER BY rand() LIMIT ?");
 			ps.setInt(1,classid);
 			ps.setInt(2,subjectid);
 			ps.setInt(3,chapterid);
 			ps.setInt(4,question_type);
+			ps.setInt(5,number);
 			ResultSet rs = ps.executeQuery();
 			
 			int rows = 0;

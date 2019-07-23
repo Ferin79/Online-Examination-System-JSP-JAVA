@@ -237,16 +237,6 @@
 				questiontype = request.getParameter("type");
 			%>
 			</tr>
-			
-				
-		<tr>
-		<td><label>Exam Name :</label>
-		<td><input type="text" name="examname" placeholder="Enter Exam Name"></td>
-		</tr>
-		<%
-			session.setAttribute("examname", request.getParameter("examname"));
-		
-		%>
 		<tr>
 		<td><label>Enter Number of Question :</label></td>
 		<td><input type="number" name="no_question" placeholder="Enter Number of Question"></td>

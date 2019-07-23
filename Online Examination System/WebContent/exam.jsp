@@ -187,20 +187,12 @@ catch(Exception e)
                 A Place For Better Future
             </div>
         </div>
-        <div class="main">
-            <ul>
-                <li><a href="#">Hey, ${fullname}</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Developer</a></li>
-            </ul>
-        </div>
     </header>
 	<%
 		
 		ResultSet r1 = null;
 		Connection con = DriverManager.getConnection(url,"root","");
-		PreparedStatement ps = con.prepareStatement("select id from exam_question");
+		PreparedStatement ps = con.prepareStatement("select questionid from exam_question");
 		ResultSet rs = ps.executeQuery();
 	%>
 	<section class="time_css"><b>[<span id="time"></span></b>]</section>
@@ -212,10 +204,11 @@ catch(Exception e)
 		while(rs.next())
 		{
 			ps = con.prepareStatement("select * from questionmaster where questionid = ?");
-			ps.setInt(1,rs.getInt("id"));
+			ps.setInt(1,rs.getInt("questionid"));
 			r1 = ps.executeQuery();
 			while(r1.next())
 			{
+				String id = r1.getString("questionid");
 				no++;
 				String add = "ans" + String.valueOf(no);
 				session.setAttribute("add", add);
@@ -224,18 +217,26 @@ catch(Exception e)
 				<td>
 				<label class="index_no"><%=no %>:</label>
 				
-				<label class="ques"><%=r1.getString("question") %></label>
-			
+				<img alt="hello" src="print.jsp?id=<%=id%>" width="500" height="350">
+				<br>
+				<br>
+				<br>
 				<br>
 				<input type="radio" name="${add}" value ="0" checked><label class="option">Default</label>
 				<br>
-				<input type="radio" name="${add}" value ="1"><label class="option"><%=r1.getString("option1") %></label>
+				<input type="radio" name="${add}" value ="1"><label class="option">A</label>
 				<br>
-				<input type="radio" name="${add}" value="2"><label class="option"><%=r1.getString("option2") %></label>
+				<input type="radio" name="${add}" value="2"><label class="option">B</label>
 				<br>
-				<input type="radio" name="${add}" value="3"><label class="option"><%=r1.getString("option3") %></label>
+				<input type="radio" name="${add}" value="3"><label class="option">C</label>
 				<br>
-				<input type="radio" name="${add}" value="4"><label class="option"><%=r1.getString("option4") %></label>
+				<input type="radio" name="${add}" value="4"><label class="option">D</label>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				</td>
 				</tr>
 	<%	

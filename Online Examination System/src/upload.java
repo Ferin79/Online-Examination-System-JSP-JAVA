@@ -35,6 +35,22 @@ public class upload extends HttpServlet {
 		{
 			System.out.println(e.getMessage());
 		}
+		try
+		{
+			String url = "jdbc:mysql://localhost:3306/online_exam?useTimezone=ture&serverTimezone=UTC";
+			Connection con = DriverManager.getConnection(url,"root","");
+			PreparedStatement ps = con.prepareStatement("insert into image values (1,?)");
+			Part part = request.getPart("image1");
+			InputStream is = part.getInputStream();
+			ps.setBlob(1,is);
+			ps.execute();
+			System.out.println("Success");
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
