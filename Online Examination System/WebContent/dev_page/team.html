@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            background-color: lightcoral;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .row {
+            position: absolute;
+            top: 25%;
+            left: 10%
+        }
+
+        .column {
+            float: left;
+            width: 30%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .card {
+            background-color: lightblue;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        .hello {
+            font-size: 100px;
+            font-family: sans-serif;
+            color: lightpink;
+        }
+
+        .aca {
+            font-size: 50px;
+            font-family: sans-serif;
+            color: lightpink;
+            padding-left: 150px;
+        }
+        .sup
+        {
+            font-size: 50px;
+            font-family: sans-serif;
+            color: lightpink;
+            padding-top: 100px;
+            padding-left: 10px;   
+        }
+    </style>
+</head>
+
+<body>
+    <center><label class="hello">Meet Our Team</label></center>
+    <div class="aca"><label>Academic Staff</label></div>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="img_cen">
+                    <img src="E:\Pics\iPhone\ferin (2).png" alt="Jane" style="width:250px;height: 250px;">
+                </div>
+                <div class="container">
+                    <h2>Ferin Patel</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (3).jpeg" alt="Mike" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>Mike Ross</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (3).jpeg" alt="Mike" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>Mike Ross</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (3).jpeg" alt="Mike" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>Mike Ross</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (3).jpeg" alt="Mike" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>Mike Ross</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (23).jpg" alt="John" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="sup"><label>Support Staff</label></div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (23).jpg" alt="John" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (23).jpg" alt="John" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (23).jpg" alt="John" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="E:\Pics\iPhone\ferin (23).jpg" alt="John" style="width:250px;height: 250px;">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

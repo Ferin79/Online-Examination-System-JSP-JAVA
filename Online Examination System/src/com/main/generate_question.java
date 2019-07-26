@@ -21,7 +21,9 @@ public class generate_question extends HttpServlet {
 		int chapterid = Integer.parseInt(request.getParameter("chapter"));
 		int question_type = Integer.parseInt(request.getParameter("ques_type"));
 		int number = Integer.parseInt(request.getParameter("no_question"));
-		
+		Double mark = Double.parseDouble(request.getParameter("neg_marks"));
+		System.out.println("From Java Func neg_marks :"+mark);
+
 		System.out.println(classid+" "+subjectid+" "+chapterid+" "+question_type);
 		ResultSet r1 = null;
 		try
@@ -50,6 +52,9 @@ public class generate_question extends HttpServlet {
 					ps.executeUpdate();
 				}
 			}
+			ps = com.prepareStatement("insert into neg_marks values (?)");
+			ps.setDouble(1,mark);
+			ps.executeUpdate();
 			System.out.println("Done");
 			response.sendRedirect("generate-question.jsp");
 		}

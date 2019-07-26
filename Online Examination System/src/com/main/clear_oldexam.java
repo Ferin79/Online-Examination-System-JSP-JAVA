@@ -23,6 +23,8 @@ public class clear_oldexam extends HttpServlet {
 			ps.executeUpdate();
 			ps = con.prepareStatement("TRUNCATE TABLE curr_exam");
 			ps.executeUpdate();
+			ps = con.prepareStatement("TRUNCATE TABLE neg_marks");
+			ps.executeUpdate();
 			response.sendRedirect("generate-question.jsp");
 		}
 		catch(Exception e)

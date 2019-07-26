@@ -41,6 +41,8 @@ public class cal_result extends HttpServlet {
 		int countNot = 0;
 		int[] ques_id = new int[Integer.parseInt(value)];
 		
+		double a = 0.0;
+		
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -48,6 +50,13 @@ public class cal_result extends HttpServlet {
 		try
 		{
 			con = DriverManager.getConnection(url,"root","");
+			ps = con.prepareStatement("select * from neg_marks");
+			rs = ps.executeQuery();
+			while(rs.next())
+			{
+				a = rs.getDouble("neg");
+			}
+			System.out.println("Neg Marks :"+a);
 			ps = con.prepareStatement("select questionid from exam_question");
 			rs = ps.executeQuery();
 			
@@ -86,6 +95,7 @@ public class cal_result extends HttpServlet {
 					else if(sel_ans[i] != rs.getInt("answer"))
 					{
 						countWrong++;
+						total_marks = total_marks - a;
 					}
 					else
 					{

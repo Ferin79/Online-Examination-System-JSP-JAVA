@@ -135,6 +135,7 @@
 <body onload="startTimer();">
 
 <%
+response.setHeader("Cache-control","no-cache, no-store, must-revalidate");
 int flag = 0;
 if(session.getAttribute("email")!=null)
 {
@@ -174,6 +175,7 @@ try
 		PreparedStatement pr = com.prepareStatement("insert into curr_exam (email) values (?)");
 		pr.setString(1,session.getValue("email").toString());
 		pr.executeUpdate();
+		
 }
 catch(Exception e)
 {
@@ -217,7 +219,7 @@ catch(Exception e)
 				<td>
 				<label class="index_no"><%=no %>:</label>
 				
-				<img alt="hello" src="print.jsp?id=<%=id%>" width="500" height="350">
+				<img alt="hello" src="ques_print.jsp?id=<%=id%>" width="500" height="350">
 				<br>
 				<br>
 				<br>
